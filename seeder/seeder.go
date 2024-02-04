@@ -14,7 +14,7 @@ var fileRequests = make(chan string)
 func main() {
 	// Listen for incoming connections
 	// 10.5.226.133 under aau staff
-	ln, err := net.Listen("tcp", "192.168.43.37:1234")
+	ln, err := net.Listen("tcp", "192.168.8.104:1234")
 	if err != nil {
 		fmt.Println("Error starting server: ", err)
 		return
@@ -64,7 +64,7 @@ func downloadFile(fileName string) {
 	}
 
 	for _, peer := range peerList {
-		conn, err := net.Dial("tcp", "192.168.43.117:8080")
+		conn, err := net.Dial("tcp", "192.168.8.103:8080")
 		if err != nil {
 			fmt.Println("Error connecting to peer: ", err)
 			return
@@ -132,7 +132,7 @@ func handleWebServer() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Welcome to the P2P File Sharing Application\n")
 		fmt.Fprintf(w, "You can use '/files' to see available files\n ")
-		fmt.Fprintf(w, "You can use '/dowunload?file=filename'...the file with the specifed name will be downloaded if found\n ")
+		fmt.Fprintf(w, "You can use '/download?file=filename'...the file with the specifed name will be downloaded if found\n ")
 	})
 
 	http.HandleFunc("/files", func(w http.ResponseWriter, r *http.Request) {
@@ -147,5 +147,5 @@ func handleWebServer() {
 
 		fmt.Fprintf(w, "Downloading file: %s", fileName)
 	})
-	http.ListenAndServe("192.168.43.37:8080", nil)
+	http.ListenAndServe("192.168.8.104:8080", nil)
 }

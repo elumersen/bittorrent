@@ -14,11 +14,7 @@ var fileRequests = make(chan string)
 func main() {
 	// Listen for incoming connections
 	// 10.5.226.133 under aau staff
-<<<<<<< HEAD
-	ln, err := net.Listen("tcp", "10.5.206.150:1234")
-=======
 	ln, err := net.Listen("tcp", "192.168.8.104:1234")
->>>>>>> f3fa7e291eff2171f6624b3de2781b017a14bbd8
 	if err != nil {
 		fmt.Println("Error starting server: ", err)
 		return

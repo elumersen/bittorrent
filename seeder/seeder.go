@@ -68,11 +68,7 @@ func downloadFile(fileName string) {
 	}
 
 	for _, peer := range peerList {
-<<<<<<< HEAD
-		conn, err := net.Dial("tcp", "10.5.206.7:8080")
-=======
 		conn, err := net.Dial("tcp", "192.168.8.103:8080")
->>>>>>> f3fa7e291eff2171f6624b3de2781b017a14bbd8
 		if err != nil {
 			fmt.Println("Error connecting to peer: ", err)
 			return

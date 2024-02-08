@@ -14,7 +14,7 @@ var fileRequests = make(chan string)
 func main() {
 	// Listen for incoming connections
 	// 10.5.226.133 under aau staff
-	ln, err := net.Listen("tcp", "192.168.43.37:1234")
+	ln, err := net.Listen("tcp", "10.5.206.150:1234")
 	if err != nil {
 		fmt.Println("Error starting server: ", err)
 		return
@@ -64,7 +64,7 @@ func downloadFile(fileName string) {
 	}
 
 	for _, peer := range peerList {
-		conn, err := net.Dial("tcp", "192.168.43.117:8080")
+		conn, err := net.Dial("tcp", "10.5.206.7:8080")
 		if err != nil {
 			fmt.Println("Error connecting to peer: ", err)
 			return
@@ -147,5 +147,5 @@ func handleWebServer() {
 
 		fmt.Fprintf(w, "Downloading file: %s", fileName)
 	})
-	http.ListenAndServe("192.168.43.37:8080", nil)
+	http.ListenAndServe("10.5.206.150:8080", nil)
 }
